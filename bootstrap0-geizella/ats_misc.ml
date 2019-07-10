@@ -17,12 +17,12 @@
  * the terms of the GNU LESSER GENERAL PUBLIC LICENSE as published by the
  * Free Software Foundation; either version 2.1, or (at your option)  any
  * later version.
- * 
+ *
  * ATS is distributed in the hope that it will be useful, but WITHOUT ANY
  * WARRANTY; without  even  the  implied  warranty  of MERCHANTABILITY or
  * FITNESS FOR A PARTICULAR PURPOSE.  See the  GNU General Public License
  * for more details.
- * 
+ *
  * You  should  have  received  a  copy of the GNU General Public License
  * along  with  ATS;  see the  file COPYING.  If not, please write to the
  * Free Software Foundation,  51 Franklin Street, Fifth Floor, Boston, MA
@@ -92,10 +92,18 @@ let is_upper (c: char) = ('A' <= c && c <= 'Z')
 
 let string_of_char_list (cs: char list): string =
   let n = List.length cs in
+  (*
+  (* RK: `String.create` deprecated *)
   let s = String.create n in
+  *)
+  let s = Bytes.create n in
   let rec aux i cs = match cs with
+    | [] -> s | c :: cs -> (Bytes.set s i c; aux (i+1) cs) in
+    Bytes.to_string (aux 0 cs)
+    (*
+    (* RK : `String.set` deprecated *)
     | [] -> s | c :: cs -> (String.set s i c; aux (i+1) cs) in
-    aux 0 cs
+    *)
 
 (* ****** ****** *)
 
@@ -193,7 +201,7 @@ exception UnavailabilityException
 let error_of_unavailability (msg: string): 'a = begin
   prerr_string msg; prerr_newline (); raise UnavailabilityException
 end (* end of [error_of_unavailability] *)
-  
+
 (* ****** *)
 
 exception DeadCodeException

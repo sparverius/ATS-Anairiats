@@ -17,12 +17,12 @@
  * the terms of the GNU LESSER GENERAL PUBLIC LICENSE as published by the
  * Free Software Foundation; either version 2.1, or (at your option)  any
  * later version.
- * 
+ *
  * ATS is distributed in the hope that it will be useful, but WITHOUT ANY
  * WARRANTY; without  even  the  implied  warranty  of MERCHANTABILITY or
  * FITNESS FOR A PARTICULAR PURPOSE.  See the  GNU General Public License
  * for more details.
- * 
+ *
  * You  should  have  received  a  copy of the GNU General Public License
  * along  with  ATS;  see the  file COPYING.  If not, please write to the
  * Free Software Foundation,  51 Franklin Street, Fifth Floor, Boston, MA
@@ -186,8 +186,11 @@ let cprint_hityp_uni (out: out_channel) (lnames: labstring list): unit =
 (* end of [cprint_hityp_uni] *)
 
 (* ****** ****** *)
+(* orig *)
+(* external is_printable: char -> bool = "caml_is_printable" *)
 
-external is_printable: char -> bool = "caml_is_printable"
+let is_printable (c: char): bool =
+  if Char.code(c) > 31 then (Char.code(c) < 127) else false
 
 let cprint_bool (out: out_channel) (b: bool): unit =
   if b then PR.fprintf out "ats_true_bool" else PR.fprintf out "ats_false_bool"
@@ -243,7 +246,7 @@ let cprint_tmplab (out: out_channel) (tl: tmplab): unit =
 
 let cprint_tmpvar (out: out_channel) (tmp: tmpvar): unit =
   let tmp = match tmp.tmpvar_root with None -> tmp | Some tmp -> tmp in
-    PR.fprintf out "tmp%a" Cnt.fprint (tmp.tmpvar_stamp) 
+    PR.fprintf out "tmp%a" Cnt.fprint (tmp.tmpvar_stamp)
 (* end of [cprint_tmpvar] *)
 
 let cprint_tmpvar_val (out: out_channel) (tmp: tmpvar): unit =
@@ -251,7 +254,7 @@ let cprint_tmpvar_val (out: out_channel) (tmp: tmpvar): unit =
     match tmp.tmpvar_root with
       | None -> tmp | Some tmp -> tmp in
     begin
-      PR.fprintf out "tmp%a" Cnt.fprint (tmp.tmpvar_stamp) 
+      PR.fprintf out "tmp%a" Cnt.fprint (tmp.tmpvar_stamp)
     end
 (* end of [cprint_tmpvar_val] *)
 
@@ -294,7 +297,12 @@ let rec cprint_valprim (out: out_channel) (vp: valprim): unit =
     | VPext code -> PR.fprintf out "%s" code
     | VPfloat f -> begin
 	if String.get f 0 == '~' then
-	  (String.set f 0 '-'; PR.fprintf out "%s" f; String.set f 0 '~')
+          let str = Bytes.of_string f (* Bytes.of_string (f 0 '-') *)
+          in
+          (Bytes.set str 0 '-'; PR.fprintf out "%s" f; Bytes.set str 0 '~')
+          (* orig *)
+	  (* (String.set f 0 '-'; PR.fprintf out "%s" f; String.set f 0 '~') *)
+
 	else PR.fprintf out "%s" f
       end
     | VPfun fl -> PR.fprintf out "&%a" cprint_funlab fl
@@ -402,7 +410,7 @@ and cprint_select_ptr_lab
   PR.fprintf out "->atslab_%a" cprint_label lab
 
 and cprint_array_ind
-  (out: out_channel) (vpss: valprim list list): unit = 
+  (out: out_channel) (vpss: valprim list list): unit =
   let aux vps = PR.fprintf out "[%a]" cprint_valprim_list vps in
     List.iter aux vpss
 
@@ -489,12 +497,12 @@ and cprint_valprim_select_var
       let () = PR.fprintf out "(((%a*)%a)%a)"
         cprint_hityp hit_elt cprint_valprim_ptrof vp_root cprint_array_ind ind in ()
     | OFFlab (lab, hit_rec) ->
-      let istyarr = label_is_tyarr (hit_rec) (lab) in        
+      let istyarr = label_is_tyarr (hit_rec) (lab) in
 	if hityp_is_boxed hit_rec then
           let () = PR.fprintf out "(((%a)%a)%a"
             cprint_hityp hit_rec cprint_valprim vp_root cprint_select_ptr_lab lab in
           let () = if istyarr then PR.fprintf out "[0]" in (* erroneous case *)
-          let () = PR.fprintf out ")" in ()          
+          let () = PR.fprintf out ")" in ()
 	else if hityp_is_singular_rec hit_rec then
           let () = PR.fprintf out "((%a)%a)"
             cprint_hityp hit_rec cprint_valprim vp_root in ()
@@ -502,7 +510,7 @@ and cprint_valprim_select_var
           let () = PR.fprintf out "((%a)%a"
             cprint_valprim vp_root cprint_select_lab lab in
           let () = if istyarr then PR.fprintf out "[0]" in
-          let () = PR.fprintf out ")" in ()          
+          let () = PR.fprintf out ")" in ()
 	(* end of [if] *)
   in (* end of [let] *)
   let (off, offs) = match offs with
@@ -878,16 +886,16 @@ and cprint_patck (out: out_channel)
 	      | Some (d2c_nil, _) -> begin
 		  if dcon2_eq d2c d2c_nil then
 		    PR.fprintf out "if (%a != (ats_sum_ptr_type)0) { %a ; }"
-		      cprint_valprim vp cprint_cont k_fail 
+		      cprint_valprim vp cprint_cont k_fail
 		  else
 		    PR.fprintf out "if (%a == (ats_sum_ptr_type)0) { %a ; }"
-		      cprint_valprim vp cprint_cont k_fail 
+		      cprint_valprim vp cprint_cont k_fail
 		end
 	      | None -> begin
 		  if d2c.dcon2_arity_real == 0 then
 		    PR.fprintf out "if (%a != &%a) { %a ; }"
-		      cprint_valprim vp cprint_con d2c cprint_cont k_fail 
-		  else 
+		      cprint_valprim vp cprint_con d2c cprint_cont k_fail
+		  else
 		    PR.fprintf out
 		      "if (((ats_sum_ptr_type)%a)->tag != %i) { %a ; }"
 		      cprint_valprim vp d2c.dcon2_tag cprint_cont k_fail
@@ -1046,7 +1054,7 @@ let cprint_global_list (out: out_channel) (res: instr_t list): unit =
 
 let cprint_dyncon_list (out: out_channel): unit =
   let aux d2c =
-    if dcon2_is_exn d2c then  
+    if dcon2_is_exn d2c then
       PR.fprintf out "ATSextern(ats_exn_type, %a) ;\n" cprint_con d2c
     else
       PR.fprintf out "ATSextern(ats_sum_type, %a) ;\n" cprint_con d2c in
@@ -1057,7 +1065,7 @@ let cprint_dyncon_list (out: out_channel): unit =
 (* end of [cprint_dyncon_list] *)
 
 let cprint_dyncst_list (out: out_channel): unit =
-  let aux d2c = 
+  let aux d2c =
     let hit = sexp2_tr_1 (d2c.dcst2_type) in
     let hit = hityp_nf hit in match hit.hityp_node with
       | HITfun (fc, hits_arg, hit_res) -> begin match fc with
@@ -1141,7 +1149,7 @@ let cprint_function_prototypes
       PR.fprintf out "static ats_clo_ptr_type %a_clo_make (" cprint_funlab fl;
       cprint_funenvarg out envmap;
       PR.fprintf out ") ;\n"
-    end in 
+    end in
     match fl.funlab_global with
       | Some d2c -> begin match fc with
 	  | Syn.FUNCLOclo _ ->

@@ -124,19 +124,19 @@
 
 # 126 "ats_printf_c.ml"
 let __ocaml_lex_tables = {
-  Lexing.lex_base = 
+  Lexing.lex_base =
    "\000\000\253\255\001\000\002\000\003\000\009\000\010\000\255\255\
-    \020\000\000\000\030\000\040\000\022\000\000\000\000\000\046\000\
-    \254\255";
-  Lexing.lex_backtrk = 
+    \020\000\000\000\030\000\255\255\040\000\022\000\255\255\000\000\
+    \000\000\046\000\254\255\255\255";
+  Lexing.lex_backtrk =
    "\001\000\255\255\001\000\000\000\255\255\000\000\000\000\255\255\
-    \000\000\000\000\000\000\000\000\000\000\000\000\000\000\255\255\
-    \255\255";
-  Lexing.lex_default = 
+    \000\000\000\000\000\000\255\255\000\000\000\000\255\255\000\000\
+    \000\000\255\255\255\255\255\255";
+  Lexing.lex_default =
    "\002\000\000\000\002\000\255\255\255\255\255\255\255\255\000\000\
-    \255\255\255\255\255\255\255\255\255\255\255\255\255\255\016\000\
-    \000\000";
-  Lexing.lex_trans = 
+    \255\255\255\255\255\255\000\000\255\255\255\255\000\000\255\255\
+    \255\255\018\000\000\000\000\000";
+  Lexing.lex_trans =
    "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
     \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
     \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
@@ -146,18 +146,18 @@ let __ocaml_lex_tables = {
     \005\000\000\000\000\000\000\000\005\000\000\000\005\000\000\000\
     \000\000\005\000\007\000\008\000\008\000\008\000\008\000\008\000\
     \008\000\008\000\008\000\008\000\008\000\008\000\008\000\008\000\
-    \008\000\008\000\008\000\008\000\008\000\008\000\007\000\011\000\
-    \011\000\011\000\011\000\011\000\011\000\011\000\011\000\011\000\
-    \011\000\011\000\011\000\011\000\011\000\011\000\011\000\011\000\
-    \011\000\011\000\007\000\000\000\000\000\000\000\000\000\000\000\
-    \007\000\000\000\000\000\000\000\007\000\000\000\000\000\007\000\
-    \000\000\000\000\000\000\007\000\007\000\007\000\000\000\000\000\
-    \000\000\000\000\000\000\000\000\000\000\000\000\014\000\000\000\
-    \007\000\000\000\013\000\000\000\000\000\000\000\007\000\000\000\
-    \000\000\000\000\007\000\000\000\000\000\000\000\000\000\007\000\
-    \007\000\007\000\007\000\007\000\007\000\007\000\000\000\007\000\
-    \000\000\000\000\000\000\000\000\000\000\007\000\007\000\000\000\
-    \000\000\007\000\000\000\007\000\000\000\000\000\007\000\007\000\
+    \008\000\008\000\008\000\008\000\008\000\008\000\011\000\012\000\
+    \012\000\012\000\012\000\012\000\012\000\012\000\012\000\012\000\
+    \012\000\012\000\012\000\012\000\012\000\012\000\012\000\012\000\
+    \012\000\012\000\014\000\000\000\000\000\000\000\000\000\000\000\
+    \014\000\000\000\000\000\000\000\014\000\000\000\000\000\019\000\
+    \000\000\000\000\000\000\019\000\019\000\019\000\000\000\000\000\
+    \000\000\000\000\000\000\000\000\000\000\000\000\016\000\000\000\
+    \014\000\000\000\015\000\000\000\000\000\000\000\019\000\000\000\
+    \000\000\000\000\014\000\000\000\000\000\000\000\000\000\019\000\
+    \014\000\019\000\019\000\019\000\019\000\019\000\000\000\019\000\
+    \000\000\000\000\000\000\000\000\000\000\019\000\019\000\000\000\
+    \000\000\019\000\000\000\019\000\000\000\000\000\019\000\019\000\
     \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
     \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
     \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
@@ -175,7 +175,7 @@ let __ocaml_lex_tables = {
     \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
     \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
     \000\000\000\000\000\000\000\000\000\000\000\000\255\255";
-  Lexing.lex_check = 
+  Lexing.lex_check =
    "\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
@@ -187,16 +187,16 @@ let __ocaml_lex_tables = {
     \006\000\006\000\006\000\006\000\008\000\008\000\008\000\008\000\
     \008\000\008\000\008\000\008\000\008\000\008\000\010\000\010\000\
     \010\000\010\000\010\000\010\000\010\000\010\000\010\000\010\000\
-    \011\000\011\000\011\000\011\000\011\000\011\000\011\000\011\000\
-    \011\000\011\000\012\000\255\255\255\255\255\255\255\255\255\255\
-    \014\000\255\255\255\255\255\255\013\000\255\255\255\255\015\000\
-    \255\255\255\255\255\255\015\000\015\000\015\000\255\255\255\255\
-    \255\255\255\255\255\255\255\255\255\255\255\255\012\000\255\255\
-    \012\000\255\255\012\000\255\255\255\255\255\255\015\000\255\255\
-    \255\255\255\255\012\000\255\255\255\255\255\255\255\255\015\000\
-    \012\000\015\000\015\000\015\000\015\000\015\000\255\255\015\000\
-    \255\255\255\255\255\255\255\255\255\255\015\000\015\000\255\255\
-    \255\255\015\000\255\255\015\000\255\255\255\255\015\000\015\000\
+    \012\000\012\000\012\000\012\000\012\000\012\000\012\000\012\000\
+    \012\000\012\000\013\000\255\255\255\255\255\255\255\255\255\255\
+    \016\000\255\255\255\255\255\255\015\000\255\255\255\255\017\000\
+    \255\255\255\255\255\255\017\000\017\000\017\000\255\255\255\255\
+    \255\255\255\255\255\255\255\255\255\255\255\255\013\000\255\255\
+    \013\000\255\255\013\000\255\255\255\255\255\255\017\000\255\255\
+    \255\255\255\255\013\000\255\255\255\255\255\255\255\255\017\000\
+    \013\000\017\000\017\000\017\000\017\000\017\000\255\255\017\000\
+    \255\255\255\255\255\255\255\255\255\255\017\000\017\000\255\255\
+    \255\255\017\000\255\255\017\000\255\255\255\255\017\000\017\000\
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
@@ -213,23 +213,23 @@ let __ocaml_lex_tables = {
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
-    \255\255\255\255\255\255\255\255\255\255\255\255\015\000";
-  Lexing.lex_base_code = 
+    \255\255\255\255\255\255\255\255\255\255\255\255\017\000";
+  Lexing.lex_base_code =
    "";
-  Lexing.lex_backtrk_code = 
+  Lexing.lex_backtrk_code =
    "";
-  Lexing.lex_default_code = 
+  Lexing.lex_default_code =
    "";
-  Lexing.lex_trans_code = 
+  Lexing.lex_trans_code =
    "";
-  Lexing.lex_check_code = 
+  Lexing.lex_check_code =
    "";
-  Lexing.lex_code = 
+  Lexing.lex_code =
    "";
 }
 
 let rec translate ts lexbuf =
-    __ocaml_lex_translate_rec ts lexbuf 0
+   __ocaml_lex_translate_rec ts lexbuf 0
 and __ocaml_lex_translate_rec ts lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
@@ -252,77 +252,98 @@ and __ocaml_lex_translate_rec ts lexbuf __ocaml_lex_state =
       ( raise Illegal_printf_c_string )
 # 254 "ats_printf_c.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_translate_rec ts lexbuf __ocaml_lex_state
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf;
+      __ocaml_lex_translate_rec ts lexbuf __ocaml_lex_state
 
 and flags lexbuf =
-    __ocaml_lex_flags_rec lexbuf 5
+   __ocaml_lex_flags_rec lexbuf 5
 and __ocaml_lex_flags_rec lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
-
-  let flags_arg = Lexing.sub_lexeme lexbuf lexbuf.Lexing.lex_start_pos lexbuf.Lexing.lex_curr_pos in
+let
+# 173 "ats_printf_c.mll"
+                                            flags_arg
+# 267 "ats_printf_c.ml"
+= Lexing.sub_lexeme lexbuf lexbuf.Lexing.lex_start_pos lexbuf.Lexing.lex_curr_pos in
 # 173 "ats_printf_c.mll"
                                                       ( width flags_arg lexbuf )
-# 267 "ats_printf_c.ml"
+# 271 "ats_printf_c.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_flags_rec lexbuf __ocaml_lex_state
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf;
+      __ocaml_lex_flags_rec lexbuf __ocaml_lex_state
 
 and width flags_arg lexbuf =
-    __ocaml_lex_width_rec flags_arg lexbuf 6
+   __ocaml_lex_width_rec flags_arg lexbuf 6
 and __ocaml_lex_width_rec flags_arg lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
-
-  let width_arg = Lexing.sub_lexeme lexbuf lexbuf.Lexing.lex_start_pos lexbuf.Lexing.lex_curr_pos in
+let
+# 176 "ats_printf_c.mll"
+                  width_arg
+# 284 "ats_printf_c.ml"
+= Lexing.sub_lexeme lexbuf lexbuf.Lexing.lex_start_pos lexbuf.Lexing.lex_curr_pos in
 # 176 "ats_printf_c.mll"
                             ( precision flags_arg width_arg lexbuf )
-# 280 "ats_printf_c.ml"
+# 288 "ats_printf_c.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_width_rec flags_arg lexbuf __ocaml_lex_state
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf;
+      __ocaml_lex_width_rec flags_arg lexbuf __ocaml_lex_state
 
 and precision flags_arg width_arg lexbuf =
-    __ocaml_lex_precision_rec flags_arg width_arg lexbuf 9
+   __ocaml_lex_precision_rec flags_arg width_arg lexbuf 9
 and __ocaml_lex_precision_rec flags_arg width_arg lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
-
-  let prec_arg = Lexing.sub_lexeme lexbuf lexbuf.Lexing.lex_start_pos lexbuf.Lexing.lex_curr_pos in
+let
+# 179 "ats_printf_c.mll"
+                       prec_arg
+# 301 "ats_printf_c.ml"
+= Lexing.sub_lexeme lexbuf lexbuf.Lexing.lex_start_pos lexbuf.Lexing.lex_curr_pos in
 # 179 "ats_printf_c.mll"
                                 ( length flags_arg width_arg prec_arg lexbuf )
-# 293 "ats_printf_c.ml"
+# 305 "ats_printf_c.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_precision_rec flags_arg width_arg lexbuf __ocaml_lex_state
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf;
+      __ocaml_lex_precision_rec flags_arg width_arg lexbuf __ocaml_lex_state
 
 and length flags_arg width_arg prec_arg lexbuf =
-    __ocaml_lex_length_rec flags_arg width_arg prec_arg lexbuf 12
+   __ocaml_lex_length_rec flags_arg width_arg prec_arg lexbuf 13
 and __ocaml_lex_length_rec flags_arg width_arg prec_arg lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
-
-  let length_arg = Lexing.sub_lexeme lexbuf lexbuf.Lexing.lex_start_pos lexbuf.Lexing.lex_curr_pos in
+let
+# 182 "ats_printf_c.mll"
+                                                          length_arg
+# 318 "ats_printf_c.ml"
+= Lexing.sub_lexeme lexbuf lexbuf.Lexing.lex_start_pos lexbuf.Lexing.lex_curr_pos in
 # 183 "ats_printf_c.mll"
       ( specifier flags_arg width_arg prec_arg length_arg lexbuf )
-# 306 "ats_printf_c.ml"
+# 322 "ats_printf_c.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_length_rec flags_arg width_arg prec_arg lexbuf __ocaml_lex_state
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf;
+      __ocaml_lex_length_rec flags_arg width_arg prec_arg lexbuf __ocaml_lex_state
 
 and specifier flags_arg width_arg prec_arg length_arg lexbuf =
-    __ocaml_lex_specifier_rec flags_arg width_arg prec_arg length_arg lexbuf 15
+   __ocaml_lex_specifier_rec flags_arg width_arg prec_arg length_arg lexbuf 17
 and __ocaml_lex_specifier_rec flags_arg width_arg prec_arg length_arg lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
-
-  let spec_arg = Lexing.sub_lexeme_char lexbuf lexbuf.Lexing.lex_start_pos in
+let
+# 187 "ats_printf_c.mll"
+                                                               spec_arg
+# 335 "ats_printf_c.ml"
+= Lexing.sub_lexeme_char lexbuf lexbuf.Lexing.lex_start_pos in
 # 188 "ats_printf_c.mll"
       ( (printf_c_output flags_arg width_arg prec_arg length_arg spec_arg) )
-# 319 "ats_printf_c.ml"
+# 339 "ats_printf_c.ml"
 
   | 1 ->
 # 189 "ats_printf_c.mll"
       ( raise Illegal_printf_c_string )
-# 324 "ats_printf_c.ml"
+# 344 "ats_printf_c.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_specifier_rec flags_arg width_arg prec_arg length_arg lexbuf __ocaml_lex_state
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf;
+      __ocaml_lex_specifier_rec flags_arg width_arg prec_arg length_arg lexbuf __ocaml_lex_state
 
 ;;
 
@@ -332,4 +353,4 @@ and __ocaml_lex_specifier_rec flags_arg width_arg prec_arg length_arg lexbuf __o
     try let lexbuf = Lexing.from_string s in Some (List.rev (translate [] lexbuf))
     with Illegal_printf_c_string -> None
 
-# 336 "ats_printf_c.ml"
+# 357 "ats_printf_c.ml"
